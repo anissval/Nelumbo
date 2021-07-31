@@ -5,8 +5,7 @@ import {AppRouter} from "./navigation/AppRouter";
 import {MainContainer} from "./features/mainContainer/MainContainer";
 
 export const App = () => {
-    return (<BrowserRouter>
-        <MainContainer/>
-    </BrowserRouter>);
+    return (
+        <MainContainer/>)
 }
 export default App;

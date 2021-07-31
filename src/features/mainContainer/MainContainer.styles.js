@@ -36,6 +36,15 @@ export const mainContainerStyles = theme => {
             link: {
                 color: 'black',
                 textDecoration: 'none',
+            },
+            toolbarCartRight : {
+                display: 'flex',
+                justifyContent: 'flex-end',
+                textDecoration: 'none',
+                listStyle: 'none',
+                position: 'fixed',
+                top: '2em',
+                right: '2em'
             }
         }
     )

@@ -18,11 +18,12 @@ import nelumboLogo from '../../images/nelumbo.jpeg';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import {mainContainerStyles} from "./MainContainer.styles";
-import {Switch, Route, Link, BrowserRouter} from "react-router-dom";
-import {routes} from "../../navigation/Routes";
+import {Link} from "react-router-dom";
+import {routes, sessionLoginRoutes} from "../../navigation/Routes";
 import {socialMediaRoutes} from "../../navigation/Routes";
 import {AppRouter} from "../../navigation/AppRouter";
-import {Category} from "@material-ui/icons";
+import {CartWidget} from "../cartWidget/CartWidget";
+import PersonIcon from '@material-ui/icons/Person';
 
 const useStyles = makeStyles((theme) => mainContainerStyles(theme));
 export const MainContainer = (props) => {
@@ -30,7 +31,7 @@ export const MainContainer = (props) => {
     const classes = useStyles();
     const theme = useTheme();
     const [mobileOpen, setMobileOpen] = React.useState(false);
-    const [category, setCategory] = useState('Panaderia');
+    const [category, setCategory] = useState('PANADERIA');
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
@@ -55,8 +56,22 @@ export const MainContainer = (props) => {
             </List>
             <Divider/>
             <List>
+                {sessionLoginRoutes.map((routeItem, index) => (
+                    <Link to={routeItem.path} className={classes.link}>
+                        <ListItem button key={routeItem.text} onClick={() => handleOnclick(routeItem.text)}>
+                            <ListItemIcon>
+                                <PersonIcon/>
+                            </ListItemIcon>
+                            <ListItemText primary={routeItem.text}/>
+                        </ListItem>
+                    </Link>
+                ))}
+            </List>
+            <Divider/>
+            <List>
                 {socialMediaRoutes.map((item, index) => (
-                    <a href={item.url} target="_blank" rel="noopener noreferrer" className={classes.link}><ListItem button key={item.text}>
+                    <a href={item.url} target="_blank" rel="noopener noreferrer" className={classes.link}><ListItem
+                        button key={item.text}>
                         <ListItemIcon>{
                             index % 2 === 0 ? <FacebookIcon/> : <InstagramIcon/>}
                         </ListItemIcon>
@@ -87,6 +102,8 @@ export const MainContainer = (props) => {
                     <Typography variant="h6" noWrap>
                         {category}
                     </Typography>
+                    <Link to={{pathname: '/Cart'}}
+                          onClick={() => handleOnclick('CARRITO')} className={classes.toolbarCartRight}><CartWidget/></Link>
                 </Toolbar>
             </AppBar>
             <nav className={classes.drawer} aria-label="mailbox folders">
@@ -128,10 +145,12 @@ export const MainContainer = (props) => {
     );
 }
 
-MainContainer.propTypes = {
-    /**
-     * Injected by the documentation to work in an iframe.
-     * You won't need it on your project.
-     */
-    window: PropTypes.func,
-};
+MainContainer.propTypes =
+    {
+        /**
+         * Injected by the documentation to work in an iframe.
+         * You won't need it on your project.
+         */
+        window: PropTypes.func,
+    }
+;

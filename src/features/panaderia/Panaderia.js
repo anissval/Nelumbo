@@ -1,5 +1,6 @@
 import React from 'react';
+import {ProductsList} from "../store/store";
 
 export const Panaderia = () => {
-    return(<div>Panaderia</div>)
+    return(<ProductsList/>)
 }
