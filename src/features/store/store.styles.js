@@ -1,11 +1,8 @@
+import { createTheme } from '@material-ui/core/styles'
 export const storeStyle = theme => {
-    return({
+    return ({
         root: {
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-around',
-            overflow: 'hidden',
-            backgroundColor: theme.palette.background.paper,
+            color: 'black',
         },
         imageList: {
             width: 500,
@@ -15,11 +12,25 @@ export const storeStyle = theme => {
             color: 'rgba(255, 255, 255, 0.54)',
         },
         paper: {
-            padding: theme.spacing(3),
+            // padding: theme.spacing(3),
             textAlign: 'center',
-            color: theme.palette.text.secondary,
+            color: 'black',
             alignItems: 'center',
             justifyContent: 'center',
         },
     })
-}
+};
+
+export const listTheme = createTheme({
+    components: {
+        MuiImageListItemBar: {
+            styleOverrides: {
+                titleWrap: {
+                    color: 'black',
+                    backgroundColor : 'white',
+                    opacity : '0.5'
+                },
+            },
+        },
+    },
+});

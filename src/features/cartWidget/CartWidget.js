@@ -1,7 +1,8 @@
 import React, {useContext} from "react";
-import {Badge, makeStyles} from "@material-ui/core";
+import {Badge} from "@material-ui/core";
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import {cartWidgetStyle} from "./CartWidget.styles";
+import {makeStyles} from "@material-ui/styles";
 
 const useStyles = makeStyles((theme) => cartWidgetStyle(theme));
 
