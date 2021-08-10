@@ -1,5 +1,5 @@
 import { createTheme } from '@material-ui/core/styles'
-export const storeStyle = theme => {
+export const itemsListContainerStyles = theme => {
     return ({
         root: {
             color: 'black',

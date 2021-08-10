@@ -1,35 +1,32 @@
-import {Pasteleria} from "../features/pasteleria/Pasteleria";
-import {Panaderia} from "../features/panaderia/Panaderia";
-import {Vegetariano} from "../features/vegetariano/Vegetariano";
-import {Vegano} from "../features/vegano/Vegano";
-import {Artesanias} from "../features/artesanias/Artesanias";
 import {SignIn} from "../features/signIn/SignIn.js";
+import {
+    CATEGORY_ARTESANIAS, CATEGORY_INICIAR_SESSION,
+    CATEGORY_PANADERIA,
+    CATEGORY_PASTELERIA,
+    CATEGORY_VEGANO,
+    CATEGORY_VEGETARIANO
+} from "../utils/constants/constants";
 
 export const routes = [
     {
-        path: "/Panaderia",
-        component: Panaderia,
-        text: 'PANADERIA'
+        path: `/category/${CATEGORY_PANADERIA}`,
+        text: CATEGORY_PANADERIA
     },
     {
-        path: "/Pasteleria",
-        component: Pasteleria,
-        text: 'PASTELERIA'
+        path: `/category/${CATEGORY_PASTELERIA}`,
+        text: CATEGORY_PASTELERIA
     },
     {
-        path: "/Vegetariano",
-        component: Vegetariano,
-        text: 'VEGETARIANO'
+        path: `/category/${CATEGORY_VEGETARIANO}`,
+        text: CATEGORY_VEGETARIANO
     },
     {
-        path: "/Vegano",
-        component: Vegano,
-        text: 'VEGANO'
+        path: `/category/${CATEGORY_VEGANO}`,
+        text: CATEGORY_VEGANO
     },
     {
-        path: "/Artesanias",
-        component: Artesanias,
-        text: 'ARTESANIAS'
+        path: `/category/${CATEGORY_ARTESANIAS}`,
+        text: CATEGORY_ARTESANIAS
     }
 ];
 
@@ -37,14 +34,14 @@ export const sessionLoginRoutes = [
     {
         path: "/signIn",
         component: SignIn,
-        text: 'INICIAR SESSION'
+        text: CATEGORY_INICIAR_SESSION
     }
 ];
 
 export const socialMediaRoutes = [
     {
         text: 'Facebook',
-        url: ''
+        url: 'https://www.facebook.com/Nelumbo-Jujuy-117281097208798'
     },
     {
         text: 'Instagram',

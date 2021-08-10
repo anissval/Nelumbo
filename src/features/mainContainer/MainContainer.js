@@ -15,7 +15,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import {routes, sessionLoginRoutes, socialMediaRoutes} from "../../navigation/Routes";
 import {Link} from "react-router-dom";
-import {useState} from "react";
 import {makeStyles} from "@material-ui/styles";
 import {mainContainerStyles} from "./MainContainer.styles";
 import InstagramIcon from '@material-ui/icons/Instagram';
@@ -23,7 +22,9 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import PersonIcon from '@material-ui/icons/Person';
 import {CartWidget} from "../cartWidget/CartWidget";
 import {AppRouter} from "../../navigation/AppRouter";
-import nelumboLogo from '../../images/nelumbo.jpeg';
+import {useDispatch, useSelector} from "react-redux";
+import {setCategory} from "../../actions/categories";
+import {CATEGORY_CARRITO} from "../../utils/constants/constants";
 
 const drawerWidth = 240;
 const useStyles = makeStyles((theme) => mainContainerStyles(theme));
@@ -31,12 +32,9 @@ const useStyles = makeStyles((theme) => mainContainerStyles(theme));
 export const MainContainer = (props) => {
     const {window} = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
-    const [category, setCategory] = useState('PANADERIA');
     const classes = useStyles();
-
-    const handleOnclick = (category) => {
-        setCategory(category);
-    }
+    const dispatch = useDispatch();
+    const category = useSelector((state) => state.nelumboCategory);
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -45,15 +43,15 @@ export const MainContainer = (props) => {
     const drawer = (
         <div>
             <Toolbar>
-                <div><img src={nelumboLogo} alt={'nelumbo logo'}
+                <div><img src={process.env.PUBLIC_URL + '/images/nelumbo.jpeg'} alt={'nelumbo logo'}
                           style={{width: "100%", margin: "30px 0"}}/></div>
                 <Divider/></Toolbar>
             <Divider/>
             <List>
                 {routes.map((routeItem, index) => (
-                    <Link to={routeItem.path} className={classes.link}>
-                        <ListItem button key={routeItem.text} onClick={() => handleOnclick(routeItem.text)}>
-                            <ListItemText primary={routeItem.text}/>
+                    <Link to={routeItem.path} className={classes.link} key={`link-${routeItem.text}`}>
+                        <ListItem button key={`listItem-${routeItem.text}`} onClick={() => dispatch(setCategory(routeItem.text))}>
+                            <ListItemText primary={routeItem.text} key={`listItemText-${routeItem.text}`}/>
                         </ListItem>
                     </Link>
                 ))}
@@ -61,12 +59,12 @@ export const MainContainer = (props) => {
             <Divider/>
             <List>
                 {sessionLoginRoutes.map((routeItem, index) => (
-                    <Link to={routeItem.path} className={classes.link}>
-                        <ListItem button key={routeItem.text} onClick={() => handleOnclick(routeItem.text)}>
-                            <ListItemIcon>
-                                <PersonIcon/>
+                    <Link to={routeItem.path} className={classes.link} key={`link-${routeItem.text}`}>
+                        <ListItem button key={`listItem-${routeItem.text}`} onClick={() => dispatch(setCategory(routeItem.text))}>
+                            <ListItemIcon key={`listItemIcon-${routeItem.text}`}>
+                                <PersonIcon key={`PersonIcon-${routeItem.text}`}/>
                             </ListItemIcon>
-                            <ListItemText primary={routeItem.text}/>
+                            <ListItemText primary={routeItem.text} key={`listItemText-${routeItem.text}`}/>
                         </ListItem>
                     </Link>
                 ))}
@@ -74,12 +72,13 @@ export const MainContainer = (props) => {
             <Divider/>
             <List>
                 {socialMediaRoutes.map((item, index) => (
-                    <a href={item.url} target="_blank" rel="noopener noreferrer" className={classes.link}><ListItem
-                        button key={item.text}>
-                        <ListItemIcon>{
+                    <a href={item.url} target="_blank" rel="noopener noreferrer" className={classes.link} key={`a-${item.text}`}>
+                        <ListItem
+                        button key={`listItem-${item.text}`}>
+                        <ListItemIcon key={`listItemIcon-${item.text}`}>{
                             index % 2 === 0 ? <FacebookIcon/> : <InstagramIcon/>}
                         </ListItemIcon>
-                        <ListItemText primary={item.text}/>
+                        <ListItemText primary={item.text} key={`listItemText-${item.text}`}/>
                     </ListItem>
                     </a>
                 ))}
@@ -110,19 +109,17 @@ export const MainContainer = (props) => {
                         <MenuIcon/>
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
-                        {category}
+                        {category.category}
                     </Typography>
                     <Link to={{pathname: '/Cart'}}
-                          onClick={() => handleOnclick('CARRITO')}
+                          onClick={() => dispatch(setCategory(CATEGORY_CARRITO))}
                           className={classes.toolbarCartRight}><CartWidget/></Link>
 
                 </Toolbar>
             </AppBar>
-            <Box
-                component="nav"
+            <Box component="nav"
                 sx={{width: {sm: drawerWidth}, flexShrink: {sm: 0}}}
-                aria-label="mailbox folders"
-            >
+                aria-label="mailbox folders">
                 {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
                 <Drawer
                     container={container}

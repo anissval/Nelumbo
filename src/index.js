@@ -4,27 +4,9 @@ import './index.css';
 import App from './App';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
-import {createFirestoreInstance} from "redux-firestore";
-import {rootReducer} from "./ducks/reducers";
-import {createStore} from "@reduxjs/toolkit";
-import firebase from "firebase/app";
 import { ReactReduxFirebaseProvider } from "react-redux-firebase";
 import {BrowserRouter} from "react-router-dom";
-
-const rrfConfig = {
-    userProfile: "users",
-    useFirestoreForProfile: true,
-};
-
-const initialState = {};
-const store = createStore(rootReducer, initialState);
-
-const rrfProps = {
-    firebase,
-    config: rrfConfig,
-    dispatch: store.dispatch,
-    createFirestoreInstance, //since we are using Firestore
-};
+import {rrfProps, store} from "./firebase/firebase";
 
 ReactDOM.render(
   <React.StrictMode>

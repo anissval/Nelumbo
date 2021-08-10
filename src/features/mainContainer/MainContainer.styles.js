@@ -13,7 +13,7 @@ export const mainContainerStyles = theme => {
                 textDecoration: 'none',
                 listStyle: 'none',
                 position: 'fixed',
-                top: '2em',
+                top: '1em',
                 right: '2em'
             },
         }
