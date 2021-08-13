@@ -1,6 +1,6 @@
 import {SignIn} from "../features/signIn/SignIn.js";
 import {
-    CATEGORY_ARTESANIAS, CATEGORY_INICIAR_SESSION,
+    CATEGORY_ARTESANIAS, CATEGORY_USER,
     CATEGORY_PANADERIA,
     CATEGORY_PASTELERIA,
     CATEGORY_VEGANO,
@@ -34,7 +34,7 @@ export const sessionLoginRoutes = [
     {
         path: "/signIn",
         component: SignIn,
-        text: CATEGORY_INICIAR_SESSION
+        text: CATEGORY_USER
     }
 ];
 
@@ -46,5 +46,8 @@ export const socialMediaRoutes = [
     {
         text: 'Instagram',
         url: 'https://www.instagram.com/nelumbojujuy/'
+    }, {
+        text: 'WhatsApp',
+        url: 'https://wa.me/+5491125165139'
     }
 ];

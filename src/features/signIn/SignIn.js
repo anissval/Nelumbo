@@ -7,12 +7,8 @@ import {useSelector} from "react-redux";
 import {UserForm} from "../userForm/UserForm";
 
 const uiConfig = {
-    // Popup signin flow rather than redirect flow.
     signInFlow: 'popup',
-    // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
-    signInSuccessUrl: '/SignIn',
-    // We will display Google as auth providers.
-    // I may add facebookProviderID in the future
+    //TODO: add facebook option soon
     signInOptions: [
         googleProviderID,
         emailProviderID
@@ -20,7 +16,7 @@ const uiConfig = {
 };
 export const SignIn = () => {
     const firebase = useFirebase();
-    const auth = useSelector(state => state.firebase.auth)
+    const auth = useSelector(state => state.firebase.auth);
 
     return (
 

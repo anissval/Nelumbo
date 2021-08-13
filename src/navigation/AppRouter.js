@@ -4,6 +4,7 @@ import {Cart} from "../features/cart/Cart";
 import {SignIn} from "../features/signIn/SignIn.js";
 import {ItemDetailContainer} from "../features/itemDetailContainer/ItemDetailContainer";
 import {ItemsListContainer} from "../features/itemsListContainer/ItemsListContainer";
+import {OrderConfirmation} from "../features/orderConfirmation/OrderConfirmation";
 
 export const AppRouter = () => {
 
@@ -12,6 +13,7 @@ export const AppRouter = () => {
             <Switch>
                 <Route exact path="/"><ItemsListContainer/></Route>
                 <Route path="/Cart"><Cart/></Route>
+                <Route path="/OrderConfirmation"><OrderConfirmation/></Route>
                 <Route path="/SignIn"><SignIn/></Route>
                 <Route path="/item/:id"><ItemDetailContainer/></Route>
                 <Route path="/category/:categoryID"><ItemsListContainer/></Route>

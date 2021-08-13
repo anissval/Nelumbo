@@ -160,14 +160,14 @@ export const storeProducts = [
     {
         id: 60,
         title: 'Pan de papa',
-        img: 'vegetariano1.png',
+        img: 'vegetariano2.png',
         price: 500,
         category: CATEGORY_VEGETARIANO
     },
     {
         id: 61,
         title: 'Pan de zanahoria',
-        img: 'vegetariano2.png',
+        img: 'vegetariano1.png',
         price: 500,
         category: CATEGORY_VEGETARIANO
     },

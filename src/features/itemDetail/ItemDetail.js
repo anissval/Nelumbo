@@ -1,31 +1,48 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useState} from "react";
 import {itemDetailStyles} from "./ItemDetailStyles";
 import {Button, Paper} from "@material-ui/core";
 import {useHistory} from "react-router-dom"
 import {makeStyles} from "@material-ui/styles";
+import {useDispatch, useSelector} from "react-redux";
+import {addItemToCart, calculateTotalAmount, calculateTotalItems, updateItemToCart} from "../../actions/cartContent";
+import {setCategory} from "../../actions/categories";
+import {CATEGORY_CARRITO} from "../../utils/constants/constants";
 
 const useStyles = makeStyles((theme) => itemDetailStyles(theme));
 export const ItemDetail = ({product, component: CustumizedComponent}) => {
-    //TODO: replace with redux
-    //const {addItem, calculateTotalAmount} = useContext(CartContext);
     const [showCheckoutButtons, setShowCheckoutButtons] = useState(false);
     const history = useHistory();
     const itemDetailClasses = useStyles();
+    const dispatch = useDispatch();
+    const content = useSelector((state) => state.nelumboCartContent.cartContent);
 
     const onAddToCart = (selectedQuantity) => {
-        //TODO : replace with redux
-        //addItem(product, selectedQuantity);
-
+        const dataToUpdate = isItemIntoCart(product);
+        if (dataToUpdate) {
+            const updatedQuantity = dataToUpdate.quantity + selectedQuantity;
+            dispatch(updateItemToCart(product, updatedQuantity));
+        } else {
+            dispatch(addItemToCart(product, selectedQuantity));
+        }
+        dispatch(calculateTotalAmount());
+        dispatch(calculateTotalItems());
         setShowCheckoutButtons(true);
+    }
+
+    const isItemIntoCart = (item) => {
+        const cartContentFiltered = content.filter((entry) => entry.item.id === item.id);
+        if (cartContentFiltered.length > 0) {
+            return cartContentFiltered[0];
+        } else {
+            return null;
+        }
     }
 
     const handleCancel = () => {
         setShowCheckoutButtons(false);
     }
     const handleOnclick = () => {
-        //TODO : replace with redux
-        //calculateTotalAmount();
-
+        dispatch(setCategory(CATEGORY_CARRITO));
         history.push("/Cart");
     }
 
@@ -35,7 +52,9 @@ export const ItemDetail = ({product, component: CustumizedComponent}) => {
                 <ul>
                     <li style={{listStyle: 'none'}}>
                         <Button variant="outlined" size="large" color="primary" className={itemDetailClasses.margin}
-                                onClick={() => {handleOnclick()}}>TERMINAR MI COMPRA</Button>
+                                onClick={() => {
+                                    handleOnclick()
+                                }}>TERMINAR MI COMPRA</Button>
                     </li>
                     <li style={{listStyle: 'none'}}>
                         <Button variant="outlined" size="large" color="primary" onClick={() => {

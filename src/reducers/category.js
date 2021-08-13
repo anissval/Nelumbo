@@ -1,9 +1,9 @@
 import {
-    CATEGORY_ARTESANIAS, CATEGORY_CARRITO, CATEGORY_INICIAR_SESSION,
+    CATEGORY_ARTESANIAS, CATEGORY_CARRITO, CATEGORY_USER,
     CATEGORY_PANADERIA,
     CATEGORY_PASTELERIA,
     CATEGORY_VEGANO,
-    CATEGORY_VEGETARIANO
+    CATEGORY_VEGETARIANO, ORDER_CONFIRMATION
 } from "../utils/constants/constants";
 
 const initialState = {
@@ -41,23 +41,18 @@ export const category = (state = initialState, action) => {
                 ...state,
                 category: CATEGORY_CARRITO
             }
-        case CATEGORY_INICIAR_SESSION :
+        case CATEGORY_USER :
             return {
                 ...state,
-                category: CATEGORY_INICIAR_SESSION
+                category: CATEGORY_USER
+            }
+        case ORDER_CONFIRMATION :
+            return {
+                ...state,
+                category: ORDER_CONFIRMATION
             }
         default:
             return state;
     }
 }
 
-const addToCartReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case 'ADD_TO_CART_SUCCESS' :
-            state.isAddedToCart = !state.isAddedToCart; //original object altered
-            return state;
-        default:
-            return state;
-    }
-}
-export default addToCartReducer;
