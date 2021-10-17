@@ -3,7 +3,7 @@ import {
     CATEGORY_PANADERIA,
     CATEGORY_PASTELERIA,
     CATEGORY_VEGANO,
-    CATEGORY_VEGETARIANO, ORDER_CONFIRMATION
+    CATEGORY_VEGETARIANO, ORDER_CONFIRMATION, ADMIN
 } from "../utils/constants/constants";
 
 const initialState = {
@@ -50,6 +50,11 @@ export const category = (state = initialState, action) => {
             return {
                 ...state,
                 category: ORDER_CONFIRMATION
+            }
+        case ADMIN :
+            return {
+                ...state,
+                category: ADMIN
             }
         default:
             return state;

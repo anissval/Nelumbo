@@ -136,7 +136,7 @@ export const MainContainer = (props) => {
                     open={mobileOpen}
                     onClose={handleDrawerToggle}
                     ModalProps={{
-                        keepMounted: true, // Better open performance on mobile.
+                        keepMounted: false,
                     }}
                     sx={{
                         display: {xs: 'block', sm: 'none'},

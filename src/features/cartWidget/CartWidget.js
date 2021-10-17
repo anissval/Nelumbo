@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React from "react";
 import {Badge} from "@material-ui/core";
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import {cartWidgetStyle} from "./CartWidget.styles";

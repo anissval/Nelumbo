@@ -6,3 +6,4 @@ export const CATEGORY_ARTESANIAS = "ARTESANIAS";
 export const CATEGORY_CARRITO = "CARRITO";
 export const CATEGORY_USER = "USUARIO";
 export const ORDER_CONFIRMATION = "CONFIRMACION DE PEDIDO"
+export const ADMIN = "ADMIN";

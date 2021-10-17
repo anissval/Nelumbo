@@ -1,10 +1,10 @@
-import {createStore, combineReducers, compose, applyMiddleware} from 'redux';
+import {createStore, compose, applyMiddleware} from 'redux';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
-import { reactReduxFirebase, firebaseReducer, getFirebase } from 'react-redux-firebase';
+import 'firebase/storage';
 import thunk from "redux-thunk";
-import {createFirestoreInstance, firestoreReducer, reduxFirestore, getFirestore} from "redux-firestore";
+import {createFirestoreInstance, reduxFirestore} from "redux-firestore";
 import {rootReducer} from "../reducers/reducers";
 
 const firebaseConfig = {
@@ -17,16 +17,9 @@ const firebaseConfig = {
     measurementId: "G-S3MPLTDWJJ"
 };
 
-
-/*const rrfConfig = {
-    userProfile: "users",
-    useFirestoreForProfile: true // Firestore for Profile instead of Realtime DB
-};
- */
-
-//const rfConfig = {} // optional redux-firestore Config Options
 firebase.initializeApp(firebaseConfig);
 export const nelumboAuth = firebase.auth();
+firebase.storage();
 firebase.firestore();
 
 const rrfConfig = {
