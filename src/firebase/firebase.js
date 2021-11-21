@@ -35,8 +35,8 @@ const initialState = {};
 const composedEnhancers = compose(
     applyMiddleware(
         thunk),
-         reduxFirestore(firebase, rrfConfig)
-      );
+    reduxFirestore(firebase, rrfConfig)
+);
 const store = createStore(rootReducer, initialState, composedEnhancers)
 
 const rrfProps = {
@@ -50,4 +50,4 @@ export const googleProviderID = firebase.auth.GoogleAuthProvider.PROVIDER_ID;
 export const facebookProviderID = firebase.auth.FacebookAuthProvider.PROVIDER_ID;
 export const emailProviderID = firebase.auth.EmailAuthProvider.PROVIDER_ID;
 
-export { store, rrfProps };
+export {store, rrfProps};

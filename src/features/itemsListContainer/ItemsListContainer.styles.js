@@ -1,4 +1,5 @@
-import { createTheme } from '@material-ui/core/styles'
+import {createTheme} from '@material-ui/core/styles'
+
 export const itemsListContainerStyles = theme => {
     return ({
         root: {
@@ -27,8 +28,8 @@ export const listTheme = createTheme({
             styleOverrides: {
                 titleWrap: {
                     color: 'black',
-                    backgroundColor : 'white',
-                    opacity : '0.5'
+                    backgroundColor: 'white',
+                    opacity: '0.5'
                 },
             },
         },

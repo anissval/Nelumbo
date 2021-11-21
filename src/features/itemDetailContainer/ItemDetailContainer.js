@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {CircularProgress} from "@material-ui/core";
 import {itemDetailCointainerStyle} from "./ItemDetailContainerStyles";
 import {ItemDetail} from "../itemDetail/ItemDetail";
@@ -17,7 +17,7 @@ export const ItemDetailContainer = () => {
         collection: 'productos',
         doc: id
     }]);
-    const products = useSelector(state =>  state.firestore.ordered.productos);
+    const products = useSelector(state => state.firestore.ordered.productos);
 
     return (
         <>

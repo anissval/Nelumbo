@@ -1,6 +1,6 @@
 export const mainContainerStyles = theme => {
     return ({
-            root : {color: 'black'},
+            root: {color: 'black'},
             link: {
                 color: 'black',
                 textDecoration: 'none',

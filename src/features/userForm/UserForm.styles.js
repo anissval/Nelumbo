@@ -4,7 +4,7 @@ export const userFormStyles = theme => {
             root: {
                 display: 'flex',
                 justifyContent: 'center',
-                alignItems: 'flex-start',
+                alignItems: 'center',
                 flexDirection: 'column',
                 width: '100%',
                 maxWidth: '100%',

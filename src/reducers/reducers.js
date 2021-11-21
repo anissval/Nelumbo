@@ -5,8 +5,8 @@ import {category} from "./category";
 import {cartContent} from "./cartContent";
 
 export const rootReducer = combineReducers({
-    firebase : firebaseReducer,
-    firestore : firestoreReducer,
-    nelumboCategory : category,
-    nelumboCartContent : cartContent
+    firebase: firebaseReducer,
+    firestore: firestoreReducer,
+    nelumboCategory: category,
+    nelumboCartContent: cartContent
 });

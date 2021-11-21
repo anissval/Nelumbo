@@ -9,7 +9,7 @@ import {Admin} from "../features/admin/Admin";
 
 export const AppRouter = () => {
 
-    return(
+    return (
         <Switch>
             <Switch>
                 <Route exact path="/"><ItemsListContainer/></Route>

@@ -6,7 +6,7 @@ export const processDataFromDB = (querySnapshot) => {
         productsWithID = querySnapshot.docs.map((doc) => {
             const id = doc.id;
             const data = doc.data();
-            return  {id: id, ...data};
+            return {id: id, ...data};
         });
     }
     return productsWithID;

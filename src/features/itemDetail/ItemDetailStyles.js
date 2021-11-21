@@ -34,7 +34,7 @@ export const itemDetailStyles = theme => {
             groupButtons: {
                 '& > Button > Link': {
                     textDecoration: 'none',
-                    color : 'black'
+                    color: 'black'
                 }
             },
             margin: {

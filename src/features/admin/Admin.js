@@ -26,6 +26,7 @@ export const Admin = () => {
             handleSnackBar(true, 'Publicacion cargada exitosamente', SNACKBAR_SEVERITY_SUCCESS);
         });
     }
+
     const uploadProductImage = async () => {
         if (image == null)
             return;

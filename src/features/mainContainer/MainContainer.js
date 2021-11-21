@@ -8,7 +8,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Toolbar from '@material-ui/core/Toolbar';
 import {routes, sessionLoginRoutes, socialMediaRoutes} from "../../navigation/Routes";
 import MenuIcon from '@material-ui/icons/Menu';
-import {Link} from "react-router-dom";
+import {Link, useHistory, useParams} from "react-router-dom";
 import {makeStyles} from "@material-ui/styles";
 import {mainContainerStyles} from "./MainContainer.styles";
 import InstagramIcon from '@material-ui/icons/Instagram';
@@ -19,7 +19,7 @@ import {CartWidget} from "../cartWidget/CartWidget";
 import {AppRouter} from "../../navigation/AppRouter";
 import {useDispatch, useSelector} from "react-redux";
 import {setCategory} from "../../actions/categories";
-import {CATEGORY_CARRITO} from "../../utils/constants/constants";
+import {CATEGORY_CARRITO, CATEGORY_PANADERIA} from "../../utils/constants/constants";
 import {AppBar, Box, CssBaseline, Drawer, IconButton, Typography} from "@material-ui/core";
 
 const drawerWidth = 240;
@@ -38,8 +38,8 @@ export const MainContainer = (props) => {
 
     const renderMediaButtons = (mediaName) => {
         if (mediaName === 'Facebook') {
-            return <FacebookIcon/>}
-        else if (mediaName === 'Instagram') {
+            return <FacebookIcon/>
+        } else if (mediaName === 'Instagram') {
             return <InstagramIcon/>;
         } else if (mediaName === 'WhatsApp') {
             return <WhatsAppIcon/>;
@@ -50,7 +50,9 @@ export const MainContainer = (props) => {
         <div>
             <Toolbar>
                 <div><img src={process.env.PUBLIC_URL + '/images/nelumboLogo.jpeg'} alt={'Nelumbo Logo'}
-                          style={{width: "100%", margin: "10px 0"}}/></div>
+                          style={{width: "100%", margin: "10px 0"}}
+                          onClick={() => dispatch(setCategory(CATEGORY_PANADERIA))}
+                /></div>
                 <Divider/></Toolbar>
             <Divider/>
             <List>

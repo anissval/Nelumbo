@@ -4,14 +4,14 @@ export const itemDetailCointainerStyle = theme => {
             justifyContent: 'center',
             alignItems: 'center',
             maxWidth: '100%',
-            margin :'3%',
+            margin: '3%',
             padding: '3%',
         },
         loading: {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            margin : '20%'
+            margin: '20%'
         }
     })
 }

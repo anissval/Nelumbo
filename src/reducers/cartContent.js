@@ -1,6 +1,6 @@
 import {
     ADD_ITEM_TO_CART,
-    CALCULATE_TOTAL_AMOUNT, CALCULATE_TOTAL_ITEMS, CLEAR_CART_CONTENT,
+    CALCULATE_TOTAL_AMOUNT, CALCULATE_TOTAL_ITEMS, CLEAR_CART_CONTENT, FINAL_ORDER_DATA, ORDER_ID,
     REMOVE_FROM_CART,
     UPDATE_ITEM_INTO_CART
 } from "../actions/cartContent";
@@ -8,13 +8,15 @@ import {
 const initialState = {
     cartContent: [],
     totalAmount: 0,
-    totalItems:0
+    totalItems: 0,
+    finalOrderData: null,
+    orderId: ""
 }
 
 export const cartContent = (state = initialState, action) => {
     switch (action.type) {
         case ADD_ITEM_TO_CART :
-           const cartContentUpdated_add = [...state.cartContent, action.payload]
+            const cartContentUpdated_add = [...state.cartContent, action.payload]
             return {
                 ...state,
                 cartContent: cartContentUpdated_add
@@ -38,8 +40,8 @@ export const cartContent = (state = initialState, action) => {
             }
         case CALCULATE_TOTAL_AMOUNT :
             let totalAmountUpdated = 0;
-                state.cartContent.forEach(product => {
-                totalAmountUpdated = totalAmountUpdated + product.quantity * product.item.price;
+            state.cartContent.forEach(product => {
+                totalAmountUpdated = totalAmountUpdated + (product.quantity * product.item.price);
             });
             return {
                 ...state,
@@ -54,12 +56,22 @@ export const cartContent = (state = initialState, action) => {
                 ...state,
                 totalItems: totalItemsUpdated
             }
+        case FINAL_ORDER_DATA :
+            return {
+                ...state,
+                finalOrderData: action.payload.orderData
+            }
+        case ORDER_ID :
+            return {
+                ...state,
+                orderId: action.payload.orderId
+            }
         case CLEAR_CART_CONTENT :
             return {
                 ...state,
                 cartContent: [],
                 totalAmount: 0,
-                totalItems:0
+                totalItems: 0
             }
         default:
             return state;
