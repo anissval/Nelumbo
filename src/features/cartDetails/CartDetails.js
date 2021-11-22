@@ -91,13 +91,13 @@ export const CartDetails = () => {
                         <TableRow key={'table-quantity'}>
                             <TableCell rowSpan={3}/>
                             <TableCell colSpan={2}>Cantidad</TableCell>
-                            <TableCell align="right">
+                            <TableCell align="center">
                                 {totalItems}</TableCell>
                         </TableRow>
                         <TableRow key={'table-totalAmount'}>
                             <TableCell>Total</TableCell>
                             <TableCell align="right"></TableCell>
-                            <TableCell align="right">${totalAmount}</TableCell>
+                            <TableCell align="center">${totalAmount}</TableCell>
                         </TableRow>
                     </TableBody>
                 </Table>

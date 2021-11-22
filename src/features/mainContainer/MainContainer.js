@@ -22,7 +22,7 @@ import {setCategory} from "../../actions/categories";
 import {CATEGORY_CARRITO, CATEGORY_PANADERIA, FACEBOOK, INSTAGRAM, WHATSAPP} from "../../utils/constants/constants";
 import {AppBar, Box, CssBaseline, Drawer, IconButton, Typography} from "@material-ui/core";
 
-const drawerWidth = 240;
+const drawerWidth = 300;
 const useStyles = makeStyles((theme) => mainContainerStyles(theme));
 
 export const MainContainer = (props) => {
