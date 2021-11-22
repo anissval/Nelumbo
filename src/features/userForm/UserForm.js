@@ -1,7 +1,5 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {makeStyles} from "@material-ui/styles";
-import {userFormStyles} from "./UserForm.styles";
 import {useFirebase, useFirestore, useFirestoreConnect} from "react-redux-firebase";
 import {Button, CircularProgress, TextField} from "@material-ui/core";
 import {
@@ -20,10 +18,7 @@ import {setCategory} from "../../actions/categories";
 import {processDataFromDB} from "../../utils/Utils";
 import Stack from "@material-ui/core/Stack";
 
-const useStyles = makeStyles((theme) => userFormStyles(theme));
-
 export const UserForm = () => {
-    const userFormClasses = useStyles();
     const auth = useSelector(state => state.firebase.auth);
     const cartContent = useSelector((state) => state.nelumboCartContent.cartContent);
     const totalAmount = useSelector((state) => state.nelumboCartContent.totalAmount);

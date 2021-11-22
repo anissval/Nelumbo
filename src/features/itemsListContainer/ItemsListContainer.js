@@ -49,6 +49,6 @@ export const ItemsListContainer = () => {
                         )
                     })
                 }
-            </Grid>) : (<CircularProgress color="secondary"/>)
+            </Grid>) : (<CircularProgress color="secondary" className={classesStoreStyle.progress}/>)
     )
 }

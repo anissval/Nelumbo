@@ -1,3 +1,4 @@
+import React from 'react';
 import {StyledFirebaseAuth} from "react-firebaseui";
 import {emailProviderID, googleProviderID} from "../../firebase/firebase";
 import {useFirebase} from "react-redux-firebase";
@@ -23,12 +24,12 @@ export const SignIn = () => {
     const firebase = useFirebase();
     const auth = useSelector(state => state.firebase.auth);
     return (
-        <>
+        <div>
             {(!auth.isEmpty) ? <UserForm/> :
-                <><p>{LOGIN_TITLE_TEXT}</p>
+                <div className={signInClasses.root}><p>{LOGIN_TITLE_TEXT}</p>
                 <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
-                </>
+                </div>
             }
-        </>
+        </div>
     );
 };

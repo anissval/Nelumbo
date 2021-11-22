@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {useFirebase, useFirestore} from "react-redux-firebase";
+import {useFirebase} from "react-redux-firebase";
 import {Button, FormControl, InputLabel, MenuItem, Select, TextField} from "@material-ui/core";
 import {SNACKBAR_SEVERITY_SUCCESS, Snackbars} from "../../snackBars/snackBars";
 
@@ -11,20 +11,22 @@ export const Admin = () => {
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState(0);
     const [categorySelected, setCategorySelected] = useState('PANADERIA');
-    const firestore = useFirestore()
+    //const firestore = useFirestore()
     const [isOpen, setIsOpen] = useState(false);
     const [snackBarMessage, setSnackBarMessage] = useState('');
     const [severity, setSeverity] = useState('success');
 
+    //TODO: provide support for admin to upload, delete products.
     const createNewProduct = () => {
-        const newProduct = {
-            title: title, description: description,
-            price: price, img: imageUrl, category: categorySelected
-        };
-        const xx = firestore.collection('productos').add(newProduct).then(({id}) => {
-            const orderID = id;
-            handleSnackBar(true, 'Publicacion cargada exitosamente', SNACKBAR_SEVERITY_SUCCESS);
-        });
+        /* const newProduct = {
+        /* const newProduct = {
+             title: title, description: description,
+             price: price, img: imageUrl, category: categorySelected
+         };
+         const prod = firestore.collection('productos').add(newProduct).then(({id}) => {
+             const orderID = id;
+             handleSnackBar(true, 'Publicacion cargada exitosamente', SNACKBAR_SEVERITY_SUCCESS);
+         });*/
     }
 
     const uploadProductImage = async () => {

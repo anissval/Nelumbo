@@ -4,9 +4,10 @@ import {Paper} from "@material-ui/core";
 import {makeStyles} from "@material-ui/styles";
 import {useDispatch, useSelector} from "react-redux";
 import {addItemToCart, calculateTotalAmount, calculateTotalItems, updateItemToCart} from "../../actions/cartContent";
+import {ItemCount} from "../itemCount/ItemCount";
 
 const useStyles = makeStyles((theme) => itemDetailStyles(theme));
-export const ItemDetail = ({product, component: CustumizedComponent}) => {
+export const ItemDetail = ({product}) => {
     const itemDetailClasses = useStyles();
     const dispatch = useDispatch();
     const content = useSelector((state) => state.nelumboCartContent.cartContent);
@@ -43,7 +44,7 @@ export const ItemDetail = ({product, component: CustumizedComponent}) => {
                     <label>${product.price}</label>
                 </div>
                 {
-                    <CustumizedComponent stock={product.stock} onAddToCart={onAddToCart} initial={1}/>
+                    <ItemCount stock={product.stock} onAddToCart={onAddToCart}/>
                 }
             </div>
         </Paper>

@@ -16,6 +16,10 @@ export const LOGIN_TITLE_TEXT = "INICIAR SESION";
 export const LOGOUT_TITLE = "CERRAR SESSION ";
 export const USER_DATA_TITLE = "DATOS DEL USUARIO";
 export const ADMIN_BUTTON_TEXT = "ADMINISTRAR";
-export const EMPTY_CART_MESSAGE = "TU CARRITO ESTA VACIO"
+export const EMPTY_CART_MESSAGE = "TU CARRITO ESTA VACIO";
+export const ADD_TO_CART_BUTTON_TEXT = "AGREGAR AL CARRITO";
+export const FACEBOOK = "Facebook";
+export const INSTAGRAM = "Instagram";
+export const WHATSAPP = "WhatsApp";
 
 

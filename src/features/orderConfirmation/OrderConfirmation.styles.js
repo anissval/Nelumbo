@@ -1,4 +1,4 @@
-export const userFormStyles = theme => {
+export const orderConfirmationStyles = theme => {
     return (
         {
             root: {
@@ -8,8 +8,6 @@ export const userFormStyles = theme => {
                 flexDirection: 'column',
                 width: '100%',
                 maxWidth: '100%',
-                margin: '1%',
-                padding: '1%',
             },
         }
     )

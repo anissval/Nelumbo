@@ -8,7 +8,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Toolbar from '@material-ui/core/Toolbar';
 import {routes, sessionLoginRoutes, socialMediaRoutes} from "../../navigation/Routes";
 import MenuIcon from '@material-ui/icons/Menu';
-import {Link, useHistory, useParams} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {makeStyles} from "@material-ui/styles";
 import {mainContainerStyles} from "./MainContainer.styles";
 import InstagramIcon from '@material-ui/icons/Instagram';
@@ -19,7 +19,7 @@ import {CartWidget} from "../cartWidget/CartWidget";
 import {AppRouter} from "../../navigation/AppRouter";
 import {useDispatch, useSelector} from "react-redux";
 import {setCategory} from "../../actions/categories";
-import {CATEGORY_CARRITO, CATEGORY_PANADERIA} from "../../utils/constants/constants";
+import {CATEGORY_CARRITO, CATEGORY_PANADERIA, FACEBOOK, INSTAGRAM, WHATSAPP} from "../../utils/constants/constants";
 import {AppBar, Box, CssBaseline, Drawer, IconButton, Typography} from "@material-ui/core";
 
 const drawerWidth = 240;
@@ -37,11 +37,11 @@ export const MainContainer = (props) => {
     };
 
     const renderMediaButtons = (mediaName) => {
-        if (mediaName === 'Facebook') {
+        if (mediaName === FACEBOOK) {
             return <FacebookIcon/>
-        } else if (mediaName === 'Instagram') {
+        } else if (mediaName === INSTAGRAM) {
             return <InstagramIcon/>;
-        } else if (mediaName === 'WhatsApp') {
+        } else if (mediaName === WHATSAPP) {
             return <WhatsAppIcon/>;
         }
     }

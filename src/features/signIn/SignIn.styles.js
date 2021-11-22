@@ -5,7 +5,7 @@ export const signInStyles = theme => {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                flexDirection: 'row',
+                flexDirection: 'column',
                 width: '100%',
                 maxWidth: '100%',
                 margin: '1%',

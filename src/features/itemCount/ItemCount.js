@@ -2,14 +2,15 @@ import React, {useEffect, useState} from "react";
 import {Button, FormControl, InputLabel, MenuItem, Select} from "@material-ui/core";
 import {itemCountStyle} from "./ItemCountStyle";
 import {makeStyles} from "@material-ui/styles";
+import {ADD_TO_CART_BUTTON_TEXT} from "../../utils/constants/constants";
 
 const useStyles = makeStyles((theme) => itemCountStyle(theme));
 
-export const ItemCount = ({stock, onAddToCart, initial}) => {
+export const ItemCount = ({stock, onAddToCart}) => {
 
     const itemCountClasses = useStyles();
     let [_stock, setStock] = useState(stock);
-    const [quantity, setQuantity] = useState(initial);
+    const [quantity, setQuantity] = useState(1);
     let [_stockAvailable, setStockAvailable] = useState(true);
 
     useEffect(() => {
@@ -67,7 +68,7 @@ export const ItemCount = ({stock, onAddToCart, initial}) => {
                 <Button disabled={!_stockAvailable || quantity === 0} variant="outlined" size="large"
                         color="primary" className={itemCountClasses.margin}
                         onClick={(_stockAvailable && quantity !== 0) ? () => onAddToCartAndUpdateStock(quantity) : undefined}>
-                    AGREGAR AL CARRITO
+                    {ADD_TO_CART_BUTTON_TEXT}
                 </Button>
             </div>
         </div>

@@ -3,7 +3,6 @@ import {CircularProgress} from "@material-ui/core";
 import {itemDetailCointainerStyle} from "./ItemDetailContainerStyles";
 import {ItemDetail} from "../itemDetail/ItemDetail";
 import {useParams} from "react-router-dom";
-import {ItemCount} from "../itemCount/ItemCount";
 import {makeStyles} from "@material-ui/styles";
 import {useFirestoreConnect} from "react-redux-firebase";
 import {useSelector} from "react-redux";
@@ -23,7 +22,7 @@ export const ItemDetailContainer = () => {
         <>
             {
                 (products && products.length !== 0) ? (
-                    <ItemDetail product={products[0]} component={ItemCount}/>
+                    <ItemDetail product={products[0]}/>
                 ) : (<div className={classes.loading}><CircularProgress size={100}/></div>)
             }
         </>
