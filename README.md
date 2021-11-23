@@ -1,5 +1,12 @@
 ## Nelumbo is a e-commerce web page in progress, created to show a catalog of a bakery/cake shop, and also some handicrafts. Built using React JS technology, Redux, material-UI and firebase.
 
+# Nelumbo Screenshots
+![Nelumbo web page](https://github.com/anissval/nelumbo/blob/main/src/utils/presentation/Nelumbo_categoria_panaderia.png)
+![Nelumbo web page](https://github.com/anissval/nelumbo/blob/main/src/utils/presentation/Nelumbo_carrito.png)
+![Nelumbo web page](https://github.com/anissval/nelumbo/blob/main/src/utils/presentation/Nelumbo_item_detail.png)
+![Nelumbo web page](https://github.com/anissval/nelumbo/blob/main/src/utils/presentation/Nelumbo_confirmacion_pedido.png)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
 ## Available Scripts
@@ -44,5 +51,3 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
-# nelumbo
-# nelumbo
