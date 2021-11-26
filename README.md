@@ -1,4 +1,6 @@
 ## Nelumbo is a e-commerce web page in progress, created to show a catalog of a bakery/cake shop, and also some handicrafts. Built using React JS technology, Redux, material-UI and firebase.
+# Nelumbo web page url for testing
+https://nelumbojujuy.herokuapp.com/
 
 # Nelumbo Screenshots
 ![Nelumbo web page](https://github.com/anissval/nelumbo/blob/main/src/utils/presentation/Nelumbo_categoria_panaderia.png)
