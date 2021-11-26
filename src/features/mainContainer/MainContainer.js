@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Divider from '@material-ui/core/Divider';
 import List from '@material-ui/core/List';
@@ -57,7 +57,7 @@ export const MainContainer = (props) => {
             <Divider/>
             <List>
                 {routes.map((routeItem, index) => (
-                    <Link to={routeItem.path} className={classes.link} key={`link-${routeItem.text}`}>
+                    <Link to={routeItem.path} className={classes.link} key={`link-${routeItem.text}`} data-testid = {`category-${routeItem.text}`}>
                         <ListItem button key={`listItem-${routeItem.text}`}
                                   onClick={() => dispatch(setCategory(routeItem.text))}>
                             <ListItemText primary={routeItem.text} key={`listItemText-${routeItem.text}`}/>

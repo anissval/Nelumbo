@@ -12,7 +12,7 @@ export const CartWidget = () => {
     const classes = useStyles();
 
     return <div className={classes.container}>
-        <Badge badgeContent={totalItemsIntoCart} color="primary">
+        <Badge data-testid="cartBadge" badgeContent={totalItemsIntoCart} color="primary">
             <ShoppingCartIcon/>
         </Badge>
     </div>

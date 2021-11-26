@@ -21,13 +21,13 @@ const useStyles = makeStyles((theme) => signInStyles(theme));
 
 export const SignIn = () => {
     const signInClasses = useStyles();
-    const firebase = useFirebase();
+    const firebaseAuth = useFirebase().auth();
     const auth = useSelector(state => state.firebase.auth);
     return (
         <div>
             {(!auth.isEmpty) ? <UserForm/> :
                 <div className={signInClasses.root}><p>{LOGIN_TITLE_TEXT}</p>
-                <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
+                <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebaseAuth}/>
                 </div>
             }
         </div>

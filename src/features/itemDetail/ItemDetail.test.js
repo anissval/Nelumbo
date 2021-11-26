@@ -1,4 +1,4 @@
-import { prettyDOM, screen, waitFor } from '@testing-library/react';
+import {fireEvent, screen, waitFor} from '@testing-library/react';
 import { renderWithRouterAndRedux } from '../../utils/TestUtils';
 import {storeProducts} from "../../mocks/mockData";
 import {ItemDetail} from "./ItemDetail";
@@ -23,5 +23,10 @@ describe('Tests del componente ItemDetail.', () => {
         });
         expect(tree).toMatchSnapshot();
     });
-});
 
+    it('Click on  button', () => {
+        renderWithRouterAndRedux(<ItemDetail product={product}/>, url);
+        const buttonAddToCart = screen.getByText('AGREGAR AL CARRITO');
+        fireEvent.click(buttonAddToCart);
+    });
+});
