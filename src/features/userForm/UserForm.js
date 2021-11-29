@@ -236,6 +236,7 @@ export const UserForm = () => {
                             InputProps={{
                                 readOnly: !isEditing,
                             }}
+                            disabled={!isEditing}
                         />
                         <p/>
                         <TextField
@@ -247,6 +248,7 @@ export const UserForm = () => {
                             InputProps={{
                                 readOnly: true,
                             }}
+                            disabled={!isEditing}
                         />
                         <p/>
                         <TextField
@@ -261,6 +263,7 @@ export const UserForm = () => {
                             InputProps={{
                                 readOnly: !isEditing,
                             }}
+                            disabled={!isEditing}
                         />
                         <p/>
                         <TextField
@@ -275,6 +278,7 @@ export const UserForm = () => {
                             InputProps={{
                                 readOnly: !isEditing,
                             }}
+                            disabled={!isEditing}
                         />
                         <p/>
                         <Stack alignItems="flex-start" justifyContent="center" direction="column" spacing={2}>

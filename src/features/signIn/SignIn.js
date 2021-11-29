@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyledFirebaseAuth} from "react-firebaseui";
-import {emailProviderID, googleProviderID} from "../../firebase/firebase";
+import {emailProviderID, facebookProviderID, googleProviderID} from "../../firebase/firebase";
 import {useFirebase} from "react-redux-firebase";
 import {useSelector} from "react-redux";
 import {UserForm} from "../userForm/UserForm";
@@ -13,6 +13,7 @@ const uiConfig = {
     //TODO: add facebook option soon
     signInOptions: [
         googleProviderID,
+        facebookProviderID,
         emailProviderID
     ],
 };
