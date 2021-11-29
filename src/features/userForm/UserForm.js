@@ -26,7 +26,6 @@ export const UserForm = () => {
     const [userEmail, setUserEmail] = useState(auth ? auth.email : "");
     const [isEditing, setIsEditing] = useState(false);
     const [updateButtonText, setUpdateButtonText] = useState(UPDATE_BUTTON_TEXT);
-    const [fieldVariant, setFieldVariant] = useState(VARIANT_STANDARD);
     useFirestoreConnect([{
         collection: 'users',
         where: [['email', '==', userEmail]],
@@ -66,7 +65,6 @@ export const UserForm = () => {
     const handleUpdateUserInfo = () => {
         setIsEditing(!isEditing);
         if (isEditing) {
-            setFieldVariant(VARIANT_OUTLINED);
             setUpdateButtonText(UPDATE_BUTTON_TEXT);
             const userInfo = {
                 name: userName,
@@ -91,7 +89,6 @@ export const UserForm = () => {
             });
         } else {
             setUpdateButtonText(SAVE_BUTTON_TEXT);
-            setFieldVariant(VARIANT_STANDARD);
         }
     }
 
@@ -229,7 +226,7 @@ export const UserForm = () => {
                         <p/>
                         <TextField
                             required
-                            variant={fieldVariant}
+                            variant={VARIANT_STANDARD}
                             label="Nombre"
                             value={userName}
                             color={"secondary"}
@@ -241,7 +238,7 @@ export const UserForm = () => {
                         <p/>
                         <TextField
                             required
-                            variant={fieldVariant}
+                            variant={VARIANT_STANDARD}
                             label="Email"
                             value={userEmail}
                             color={"secondary"}
@@ -253,7 +250,7 @@ export const UserForm = () => {
                         <p/>
                         <TextField
                             required
-                            variant={fieldVariant}
+                            variant={VARIANT_STANDARD}
                             label="Domicilio"
                             color={"secondary"}
                             value={userAddress}
@@ -268,7 +265,7 @@ export const UserForm = () => {
                         <p/>
                         <TextField
                             required
-                            variant={fieldVariant}
+                            variant={VARIANT_STANDARD}
                             label="Telefono"
                             value={userPhone}
                             color={"secondary"}
